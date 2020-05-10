@@ -11,6 +11,7 @@ interface Request {
 
 interface Response {
   user: User;
+  token: string;
 }
 
 class AuthenticateUserService {
@@ -31,8 +32,14 @@ class AuthenticateUserService {
       throw new Error('Incorrect email/password combination');
     }
 
+    const token = sign({}, '4bd87b6a4cc3abbf0be33951caa4ca1e', {
+      subject: user.id,
+      expiresIn: '1d',
+    });
+
     return {
       user,
+      token,
     };
   }
 }
