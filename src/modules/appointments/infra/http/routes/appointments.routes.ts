@@ -11,7 +11,6 @@ const appointmentsRouter = Router();
 // Rota: Receber a requisição, chamar outro arquivo e devolver uma resposta
 
 appointmentsRouter.use(ensureAuthenticated);
-const appointmentsRepository = new AppointmentsRepository();
 
 // appointmentsRouter.get('/', async (request, response) => {
 //   const appointments = await appointmentsRepository.find();
@@ -24,6 +23,7 @@ appointmentsRouter.post('/', async (request, response) => {
 
   const parsedDate = parseISO(date);
 
+  const appointmentsRepository = new AppointmentsRepository();
   const createAppointment = new CreateAppointmentService(
     appointmentsRepository,
   );
