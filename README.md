@@ -1,4 +1,4 @@
-# gostack11-first-node-typescript-project
+# GoBarber backend
 
 ## Recuperação de senha
 
